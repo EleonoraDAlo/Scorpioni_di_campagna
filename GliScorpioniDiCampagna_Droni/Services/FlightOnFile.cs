@@ -7,42 +7,45 @@ namespace GliScorpioniDiCampagna_Droni.Services
 {
     public class FlightOnFile : IFlightService
     {
-        private string filePath = "C:\\Users\\hp\\Source\\Repos\\Scorpioni_di_campagnaa\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollection.txt";
+        private string _flightFilePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollectiontxt.txt";
+        private string _dronefilePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
 
         public void AddDroneIdToFlight(int droneId,int flightId)
         {
-            var list = WriterReader.Read<Flight>(filePath);
-            var flight = list.FirstOrDefault(flight => flight.Id == flightId);
-            flight.DroneId = droneId;
-            File.WriteAllText(filePath, String.Empty);
-            foreach(var item in list)
+            var listFlight = WriterReader.Read<Flight>(_flightFilePath);
+            var listDrone = WriterReader.Read<Drone>(_dronefilePath);
+
+            var flight = listFlight.FirstOrDefault(flight => flight.Id == flightId);
+            var drone = listDrone.FirstOrDefault(drone => drone.Id == droneId);
+            flight.Drone = drone;
+            File.WriteAllText(_flightFilePath, String.Empty);
+            foreach(var item in listFlight)
             {
                     
-                WriterReader.Write(JsonSerializer.Serialize(item), filePath);
+                WriterReader.Write(JsonSerializer.Serialize(item), _flightFilePath);
 
             }
         }
 
         public void AddFlight(Flight flight)
         {
-            var list = WriterReader.Read<Flight>(filePath);
-            WriterReader.Write(JsonSerializer.Serialize(flight), filePath);
-            //foreach (var item in list)
-            //{
-            //    if (flight.Id != item.Id)
-            //        WriterReader.Write(JsonSerializer.Serialize(flight), filePath);
-            //}
+            var list = WriterReader.Read<Flight>(_flightFilePath);
+            foreach (var item in list)
+            {
+                if (flight.Id != item.Id)
+                    WriterReader.Write(JsonSerializer.Serialize(flight), _flightFilePath);
+            }
         }
 
         public IEnumerable<Flight> GetAllFlight<Flight>()
         {
-            var list = WriterReader.Read<Flight>(filePath);
+            var list = WriterReader.Read<Flight>(_flightFilePath);
             return list;
         }
 
         public Flight GetFlightByID(int flightId)
         {
-            var list = WriterReader.Read<Flight>(filePath);
+            var list = WriterReader.Read<Flight>(_flightFilePath);
             var flight = list.FirstOrDefault(flight => flight.Id == flightId);
             return flight;
         }
