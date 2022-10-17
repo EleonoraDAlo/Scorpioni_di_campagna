@@ -7,15 +7,28 @@ namespace GliScorpioniDiCampagna_Droni.Services
     public class DroneOnFile : IDroneService
     {
        // TODO cambiare il percorso con uno relativo
-        private string filePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
+        private string filePath = "C:\\Users\\hp\\Source\\Repos\\Scorpioni_di_campagnaa\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
+ 
         public void AddDrone(Drone drone)
         {
             var list = WriterReader.Read<Drone>(filePath);
-            foreach(var item in list)
-            {
-                if (drone.Id != item.Id)
-                    WriterReader.Write(JsonSerializer.Serialize(drone),filePath);
-            }
+            WriterReader.Write(JsonSerializer.Serialize(drone), filePath);
+            //foreach(var item in list)
+            //{
+            //    if (item.Id == drone.Id)
+            //    {
+            //        return;
+            //    }
+            //    //else
+            //    //{
+            //    //    WriterReader.Write(JsonSerializer.Serialize(drone), filePath);
+            //    //}
+            //}
+            //foreach(var item in list)
+            //{
+            //    if (drone.Id != item.Id)
+            //        WriterReader.Write(JsonSerializer.Serialize(drone),filePath);
+            //}
         }
 
         public IEnumerable<Drone> GetAllDrones<Drone>()

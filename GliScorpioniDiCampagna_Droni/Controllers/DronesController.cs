@@ -20,8 +20,7 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-           if(id == 0)
-                return NotFound("Elemento non trovato");
+           
             if (id.GetType() == typeof(string))
                 return BadRequest("Parametro errato!");
 

@@ -15,14 +15,13 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return StatusCode(200, _flightService.GetAllFlight<Drone>());
+            return StatusCode(200, _flightService.GetAllFlight<Flight>());
         }
 
         [HttpGet("{id}")]
         public IActionResult GetByID(int id)
         {
-            if (id == 0)
-                return NotFound("Elemento non trovato");
+          
             if (id.GetType() == typeof(string))
                 return BadRequest("Parametro errato!");
 
@@ -36,8 +35,13 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
             return StatusCode(200);
         }
 
-        [HttpPost]
-        public 
+       [HttpPut("{droneid}/{flightid}")]
+        public IActionResult Post(int droneid, int flightid)
+        {
+            _flightService.AddDroneIdToFlight(droneid, flightid);
+            return StatusCode(200);
+        }
+       
        
     }
 }

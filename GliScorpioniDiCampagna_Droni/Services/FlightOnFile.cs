@@ -7,7 +7,7 @@ namespace GliScorpioniDiCampagna_Droni.Services
 {
     public class FlightOnFile : IFlightService
     {
-        private string filePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollectiontxt.txt";
+        private string filePath = "C:\\Users\\hp\\Source\\Repos\\Scorpioni_di_campagnaa\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollection.txt";
 
         public void AddDroneIdToFlight(int droneId,int flightId)
         {
@@ -26,11 +26,12 @@ namespace GliScorpioniDiCampagna_Droni.Services
         public void AddFlight(Flight flight)
         {
             var list = WriterReader.Read<Flight>(filePath);
-            foreach (var item in list)
-            {
-                if (flight.Id != item.Id)
-                    WriterReader.Write(JsonSerializer.Serialize(flight), filePath);
-            }
+            WriterReader.Write(JsonSerializer.Serialize(flight), filePath);
+            //foreach (var item in list)
+            //{
+            //    if (flight.Id != item.Id)
+            //        WriterReader.Write(JsonSerializer.Serialize(flight), filePath);
+            //}
         }
 
         public IEnumerable<Flight> GetAllFlight<Flight>()
