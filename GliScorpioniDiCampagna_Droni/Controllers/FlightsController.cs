@@ -15,7 +15,7 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return StatusCode(200, _flightService.GetAllFlight());
+            return StatusCode(200, _flightService.GetAllFlight<Drone>());
         }
 
         [HttpGet("{id}")]
