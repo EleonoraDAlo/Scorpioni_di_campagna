@@ -17,7 +17,7 @@ namespace GliScorpioniDiCampagna_Droni.Services
             }
         }
 
-        public IEnumerable<Drone> GetAllDrones()
+        public IEnumerable<Drone> GetAllDrones<Drone>()
         {
             var list = WriterReader.Read<Drone>(filePath);
             return list;

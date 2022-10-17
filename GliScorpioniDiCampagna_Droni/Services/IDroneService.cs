@@ -6,7 +6,7 @@ namespace GliScorpioniDiCampagna_Droni.UtilityClass
     public interface IDroneService
     {
       
-        public List<Drone> GetAllDrones();
+        public IEnumerable<T> GetAllDrones<T>();
 
         public Drone GetDroneByID(int droneID);
 

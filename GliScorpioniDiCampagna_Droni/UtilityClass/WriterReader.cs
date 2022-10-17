@@ -13,7 +13,7 @@ namespace GliScorpioniDiCampagna_Droni.UtilityClass
         }
 
         
-        public static List<T> Read<>(string filePath)
+        public static List<T> Read<T>(string filePath)
         {
             List<T> list = new List<T>();
             using var streamReader = new StreamReader(filePath);
