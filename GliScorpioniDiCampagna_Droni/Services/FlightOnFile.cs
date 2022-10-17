@@ -30,11 +30,11 @@ namespace GliScorpioniDiCampagna_Droni.Services
         public void AddFlight(Flight flight)
         {
             var list = WriterReader.Read<Flight>(_flightFilePath);
-            foreach (var item in list)
-            {
-                if (flight.Id != item.Id)
-                    WriterReader.Write(JsonSerializer.Serialize(flight), _flightFilePath);
-            }
+            int countId = ExtensionMethodIdentityId.MaxFlightIdValue(list);
+            flight.Id = countId;
+
+            WriterReader.Write(JsonSerializer.Serialize(flight), _flightFilePath);
+            
         }
 
         public IEnumerable<Flight> GetAllFlight<Flight>()
