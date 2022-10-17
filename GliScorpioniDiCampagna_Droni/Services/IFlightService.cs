@@ -4,7 +4,7 @@ namespace GliScorpioniDiCampagna_Droni.Services
 {
     public interface IFlightService
     {
-        public List<Flight> GetAllFlight();
+        public IEnumerable<T> GetAllFlight<T>();
 
         public Flight GetFlightByID(int flightId);
 

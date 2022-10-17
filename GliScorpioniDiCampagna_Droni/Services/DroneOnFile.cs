@@ -6,6 +6,7 @@ namespace GliScorpioniDiCampagna_Droni.Services
 {
     public class DroneOnFile : IDroneService
     {
+       // TODO cambiare il percorso con uno relativo
         private string filePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
         public void AddDrone(Drone drone)
         {
@@ -25,7 +26,9 @@ namespace GliScorpioniDiCampagna_Droni.Services
 
         public Drone GetDroneByID(int droneID)
         {
-            throw new NotImplementedException();
+            var list = WriterReader.Read<Drone>(filePath);
+            var drone = list.FirstOrDefault(drone => drone.Id == droneID);
+            return drone;
         }
     }
 }
