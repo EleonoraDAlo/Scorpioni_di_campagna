@@ -10,7 +10,6 @@ namespace GliScorpioniDiCampagna_Droni.Models
         public PilotType Pilot { get; set; }
 
         public PropulsionType Propulsion { get; set; }
-
         
     }
 }
