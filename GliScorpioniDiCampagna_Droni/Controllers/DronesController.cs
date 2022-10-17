@@ -7,12 +7,6 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
     [ApiController]
     public class DronesController : Controller
     {
-        private DroneService _droneService = new();
-
-        [HttpGet] 
-        public IActionResult GetAll()
-        {
-            return StatusCode(200,_droneService.GetAllDrones());
-        }
+       
     }
 }
