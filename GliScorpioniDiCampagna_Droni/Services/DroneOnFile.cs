@@ -12,23 +12,10 @@ namespace GliScorpioniDiCampagna_Droni.Services
         public void AddDrone(Drone drone)
         {
             var list = WriterReader.Read<Drone>(filePath);
+            int countId = ExtensionMethodIdentityId.MaxDroneIdValue(list);
+            drone.Id = countId;
             WriterReader.Write(JsonSerializer.Serialize(drone), filePath);
-            //foreach(var item in list)
-            //{
-            //    if (item.Id == drone.Id)
-            //    {
-            //        return;
-            //    }
-            //    //else
-            //    //{
-            //    //    WriterReader.Write(JsonSerializer.Serialize(drone), filePath);
-            //    //}
-            //}
-            //foreach(var item in list)
-            //{
-            //    if (drone.Id != item.Id)
-            //        WriterReader.Write(JsonSerializer.Serialize(drone),filePath);
-            //}
+           
         }
 
         public IEnumerable<Drone> GetAllDrones<Drone>()
