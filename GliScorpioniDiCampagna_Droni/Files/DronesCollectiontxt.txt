@@ -1,2 +1,3 @@
 ﻿{"Id":0,"FlightTime":0,"Pilot":0,"Propulsion":0}
 {"Id":7,"FlightTime":0,"Pilot":0,"Propulsion":0}
+{"Id":1,"FlightTime":1,"Pilot":1,"Propulsion":1}

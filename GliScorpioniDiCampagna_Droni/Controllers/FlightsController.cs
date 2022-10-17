@@ -35,7 +35,7 @@ namespace GliScorpioniDiCampagna_Droni.Controllers
             return StatusCode(200);
         }
 
-       [HttpPut("{droneid}/{flightid}")]
+       [HttpPut("{flightid}/drone/{droneid}")]
         public IActionResult Post(int droneid, int flightid)
         {
             _flightService.AddDroneIdToFlight(droneid, flightid);

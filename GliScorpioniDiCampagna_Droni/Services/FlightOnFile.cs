@@ -7,8 +7,8 @@ namespace GliScorpioniDiCampagna_Droni.Services
 {
     public class FlightOnFile : IFlightService
     {
-        private string _flightFilePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollectiontxt.txt";
-        private string _dronefilePath = "C:\\Users\\Alessandro\\Desktop\\VS\\C#.NET\\GliScorpioniDiCampagna_Droni\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
+        private string _flightFilePath = "C:\\Users\\hp\\Source\\Repos\\Scorpioni_di_campagnaa\\GliScorpioniDiCampagna_Droni\\Files\\FlightsCollection.txt";
+        private string _dronefilePath = "C:\\Users\\hp\\Source\\Repos\\Scorpioni_di_campagnaa\\GliScorpioniDiCampagna_Droni\\Files\\DronesCollectiontxt.txt";
 
         public void AddDroneIdToFlight(int droneId,int flightId)
         {

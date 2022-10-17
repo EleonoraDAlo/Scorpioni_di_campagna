@@ -1,2 +1,2 @@
-{"Id":0,"DepartureDate":"2022-10-17T15:14:38.983Z","ArrivalDate":"2022-10-17T15:14:38.984Z","DroneId":0,"Drone":{"Id":0,"FlightTime":0,"Pilot":0,"Propulsion":0}}
-{"Id":1,"DepartureDate":"2022-10-17T15:17:27.501Z","ArrivalDate":"2022-10-17T15:17:27.501Z","DroneId":7,"Drone":{"Id":0,"FlightTime":0,"Pilot":0,"Propulsion":0}}
+{"Id":0,"DepartureDate":"2022-10-17T15:14:38.983Z","ArrivalDate":"2022-10-17T15:14:38.984Z","Drone":{"Id":0,"FlightTime":0,"Pilot":0,"Propulsion":0}}
+{"Id":1,"DepartureDate":"2022-10-17T15:17:27.501Z","ArrivalDate":"2022-10-17T15:17:27.501Z","Drone":{"Id":1,"FlightTime":1,"Pilot":1,"Propulsion":1}}
