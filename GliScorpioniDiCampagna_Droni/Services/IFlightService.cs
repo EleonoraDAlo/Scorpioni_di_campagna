@@ -10,7 +10,7 @@ namespace GliScorpioniDiCampagna_Droni.Services
 
         public void AddFlight(Flight flight);
 
-        public void AddDroneIdToFlight(int droneId);
+        public void AddDroneIdToFlight(int droneId,int flightId);
 
     }
 }
